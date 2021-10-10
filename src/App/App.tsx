@@ -1,19 +1,21 @@
 import React from 'react';
 import {ApolloClient, InMemoryCache, ApolloProvider, useQuery} from '@apollo/client'
 import './App.css';
+import DisplayData from '../DisplayData';
 
 function App() {
-  //cache data is similar to state management but wtih apollo
+  //?cache data is similar to state management but wtih apollo
   const client = new ApolloClient({
     cache: new InMemoryCache(),
-    uri: "http://localhost:3001/graphql"
+    uri: "http://localhost:4000"
   })
   return (
-    <div className="App">
-      <ApolloProvider client={client}>
-        <div>test test</div>
-      </ApolloProvider>
+    <ApolloProvider client={client}>
+        <div className="App">
+        <DisplayData/>
+    test test test
     </div>
+      </ApolloProvider>
   );
 }
 
